@@ -18,7 +18,10 @@
    --color-grey-dark-3: #999;
 
    --shadow-primary-big: 0 2rem 6rem rgba(44, 0, 25, .3);
+   --shadow-primary: 0 1rem 4rem rgba(44, 0, 25, .05);
    --shadow-primary-small: 0 .3rem 1rem rgba(109, 4, 44, 0.25);
+
+   --line: 1px solid var(--color-grey-light-2);
 }
 
 * {
