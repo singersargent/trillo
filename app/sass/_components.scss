@@ -277,9 +277,18 @@
    padding-bottom: 2px;
    transition: all .2s;
 
+   & span {
+      margin-left: 3px;
+      transition: margin-left .2s;
+   }
+
 
    &:hover {
       color: var(--color-grey-dark-1);
+
+      span {
+         margin-left: 8px;
+      }
    }
 
    &:focus {
@@ -302,5 +311,138 @@
    100% {
       box-shadow: none;
       transform: scale(1);
+   }
+}
+
+
+//////////////////////////////////////////////////////
+// PARAGRAPH
+.paragraph:not(:last-of-type) {
+   margin-bottom: 2rem;
+}
+
+
+
+//////////////////////////////////////////////////////
+// LIST
+.list {
+   border-bottom: var(--line);
+   border-top: var(--line);
+   display: flex;
+   flex-wrap: wrap;
+   list-style: none;
+   margin: 3rem 0;
+   padding: 3rem 0;
+
+   &__item {
+      flex: 0 0 50%;
+      margin-bottom: .7rem;
+   }
+
+   &__item::before {
+      content: "";
+      display: inline-block;
+      height: 1rem;
+      margin-right: .7rem;
+      width: 1rem;
+
+      // ~~older browsers~~
+      //background-image: url(../img/chevron-thin-right.svg);
+      //background-size: cover;
+
+      // ~~newer browsers : MASKS!~~
+      -webkit-mask-image: url(../img/chevron-thin-right.svg);
+      -webkit-mask-size: cover;
+      background-color: var(--color-primary);
+      mask-image: url(../img/chevron-thin-right.svg);
+      mask-size: cover;
+   }
+}
+
+
+//////////////////////////////////////////////////////
+// RECOMMEND
+.recommend {
+   align-items: center;
+   color: var(--color-grey-dark-3);
+   display: flex;
+   font-size: 1.3rem;
+   justify-content: space-between;
+
+   &__photo {
+      height: 4rem;
+      width: 4rem;
+      border-radius: 50%;
+      border: .3rem solid #fff;
+      box-sizing: content-box;
+      padding-bottom: 0;
+
+      &:not(:last-child) {
+         margin-right: -1.5rem;
+      }
+   }
+}
+
+
+//////////////////////////////////////////////////////
+// REVIEWS
+.review {
+   background-color: #fff;
+   box-shadow: var(--shadow-primary);
+   margin-bottom: 3.5rem;
+   padding: 3rem;
+   position: relative;
+   overflow: hidden;
+
+   &__text {
+      margin-bottom: 2rem;
+      z-index: 10;
+      position: relative;
+   }
+
+   &__user {
+      align-items: center;
+      display: flex;
+   }
+
+   &__photo {
+      border-radius: 50%;
+      height: 4.5rem;
+      width: 4.5rem;
+      margin-right: 1.5rem;
+   }
+
+   &__user-box {
+      margin-right: auto;
+   }
+
+   &__user-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: .4rem;
+   }
+
+   &__user-date {
+      font-size: 1rem;
+      color: var(--color-grey-dark-3);
+   }
+
+   &__rating {
+      color: var(--color-primary);
+      font-size: 2.2rem;
+      font-weight: 300;
+   }
+
+   &::before {
+      content: "\201C";
+      position: absolute;
+      top: -2.75rem;
+      left: -1rem;
+      font-size: 20rem;
+      color: var(--color-grey-light-2);
+      line-height: 1;
+      font-family: sans-serif;
+      z-index: 1;
    }
 }
