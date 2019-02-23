@@ -4,7 +4,7 @@ var gulp = require('gulp'),
    sass = require('gulp-sass'),
    rename = require('gulp-rename'),
    browserSync = require('browser-sync').create(),
-   autoprefixer = require('autoprefixer');
+   autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('watch', function() {
    browserSync.init({
@@ -27,11 +27,11 @@ gulp.task('watch', function() {
 function compileSass() {
    return gulp.src('app/sass/**/*.scss')
       .pipe(sass().on('error', sass.logError))
+      .pipe(autoprefixer())
       .pipe(cssnano())
       .pipe(rename('style.css'))
       .pipe(gulp.dest('app/css'));
 }
-
 
 function injectCSS() {
    return gulp.src('./app/css/style.css')

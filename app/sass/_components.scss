@@ -14,6 +14,13 @@
    display: flex;
    flex: 0 0 40%;
    justify-content: center;
+
+   @media only screen and (max-width: $bp-smallest) {
+      order: 1;
+      flex: 0 0 100%;
+      background-color: var(--color-grey-light-2);
+   }
+
    &__input {
       background-color: var(--color-grey-light-2);
       border-radius: 100px;
@@ -123,8 +130,18 @@
    list-style: none;
    margin-top: 3.5rem;
 
+   @media only screen and (max-width: $bp-medium) {
+      display: flex;
+      margin: 0;
+   }
+
    &__item {
       position: relative;
+
+      @media only screen and (max-width: $bp-medium) {
+         flex: 1;
+         margin: 0 !important;
+      }
 
       &:not(:last-child) {
          margin-bottom: .5rem;
@@ -165,6 +182,17 @@
       text-decoration: none;
       text-transform: uppercase;
       z-index: 10;
+
+      @media only screen and (max-width: $bp-medium) {
+         justify-content: center;
+         padding: 2rem;
+      }
+
+      @media only screen and (max-width: $bp-small) {
+         flex-direction: column;
+         align-items: center;
+         padding: 1.5rem .5rem;
+      }
    }
 
    &__icon {
@@ -172,6 +200,13 @@
       height: 1.75rem;
       margin-right: 2rem;
       width: 1.75rem;
+
+      @media only screen and (max-width: $bp-small) {
+         margin-right: 0;
+         margin-bottom: 7px;
+         width: 1.5rem;
+         height: 1.5rem;
+      }
    }
 }
 
@@ -183,6 +218,10 @@
    font-size: 1.2rem;
    padding: 2.5rem;
    text-align: center;
+
+   @media only screen and (max-width: $bp-medium) {
+      display: none;
+   }
 }
 
 
@@ -210,6 +249,11 @@
       letter-spacing: 1px;
       padding: 1.5rem 3rem;
       text-transform: uppercase;
+
+      @media only screen and (max-width: $bp-small) {
+         font-size: 1.8rem;
+         padding: 1.25rem 2rem;
+      }
    }
 
    &__stars {
@@ -244,17 +288,29 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
+
+      @media only screen and (max-width: $bp-small) {
+         padding: 0 1.5rem;
+      } 
    }
 
    &__rating-average {
       font-size: 2.25rem;
       font-weight: 300;
       margin-bottom: -3px;
+
+      @media only screen and (max-width: $bp-small) {
+         font-size: 1.8rem;
+      }
    }
 
    &__rating-count {
       font-size: .8rem;
       text-transform: uppercase;
+
+      @media only screen and (max-width: $bp-small) {
+         font-size: .5rem;
+      }
    }  
 }
 
@@ -343,15 +399,18 @@
       width: 1rem;
 
       // ~~older browsers~~
-      //background-image: url(../img/chevron-thin-right.svg);
-      //background-size: cover;
+      background-image: url(../img/chevron-thin-right.svg);
+      background-size: cover;
 
       // ~~newer browsers : MASKS!~~
-      -webkit-mask-image: url(../img/chevron-thin-right.svg);
-      -webkit-mask-size: cover;
-      background-color: var(--color-primary);
-      mask-image: url(../img/chevron-thin-right.svg);
-      mask-size: cover;
+      @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+         -webkit-mask-image: url(../img/chevron-thin-right.svg);
+         -webkit-mask-size: cover;
+         background-color: var(--color-primary);
+         mask-image: url(../img/chevron-thin-right.svg);
+         mask-size: cover;
+         background-image: none;
+      }
    }
 }
 
@@ -365,6 +424,10 @@
    font-size: 1.3rem;
    justify-content: space-between;
 
+   &__friends {
+      display: flex;
+   }
+
    &__photo {
       height: 4rem;
       width: 4rem;
@@ -374,7 +437,7 @@
       padding-bottom: 0;
 
       &:not(:last-child) {
-         margin-right: -1.5rem;
+         margin-right: -2rem;
       }
    }
 }
@@ -389,6 +452,11 @@
    padding: 3rem;
    position: relative;
    overflow: hidden;
+
+   @media only screen and (max-width: $bp-medium) {
+      padding: 2rem;
+      margin-bottom: 3rem;
+   }
 
    &__text {
       margin-bottom: 2rem;
@@ -449,6 +517,10 @@
 .cta {
    padding: 3.5rem 0;
    text-align: center;
+
+   @media only screen and (max-width: $bp-medium) {
+      padding: 2.5rem 0;
+   }
 
    &__book-now {
       text-transform: uppercase;
